@@ -13,7 +13,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	int i = 0, j = 0, k = 0, sum = 0, carry = 0;
 	int len1 = 0, len2 = 0, t;
 	char tmp;
-    /* سطر فارغ هنا ضروروي جداً بعد التعريفات */
+
 	while (n1[len1])
 		len1++;
 	while (n2[len2])
