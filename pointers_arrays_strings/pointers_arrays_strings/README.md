@@ -1,1 +1,1 @@
-This folder contains tasks about pointers and arrays
+Tasks for pointers, arrays, and strings part 2
