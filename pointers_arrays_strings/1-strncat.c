@@ -14,14 +14,12 @@ char *_strncat(char *dest, char *src, int n)
 	int j;
 
 	i = 0;
-	/* نصل لنهاية الكلمة الأولى */
 	while (dest[i] != '\0')
 	{
 		i++;
 	}
 
 	j = 0;
-	/* ننسخ من src بشرطين: لم نصل لنهاية src ولم نتجاوز n */
 	while (j < n && src[j] != '\0')
 	{
 		dest[i] = src[j];
@@ -29,7 +27,6 @@ char *_strncat(char *dest, char *src, int n)
 		j++;
 	}
 
-	/* نضع علامة النهاية دائماً */
 	dest[i] = '\0';
 
 	return (dest);
