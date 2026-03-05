@@ -1,1 +1,1 @@
-Repository for Holberton School low-level programming tasks
+Tasks for pointers, arrays, and strings part 2
