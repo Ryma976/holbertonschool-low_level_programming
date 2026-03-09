@@ -1,1 +1,1 @@
-Tasks for pointers, arrays, and strings part 2
+Learning memory manipulation with memset, memcpy, and pointers.
