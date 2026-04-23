@@ -220,13 +220,9 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00FF00FF00ULL) |
-			  ((e_entry >> 8) & 0x00FF00FF00FF00FFULL);
+		e_entry = ((e_entry << 8) & 0xFF00FF00) |
+			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
-		if (e_ident[EI_CLASS] == ELFCLASS64)
-			e_entry = (e_entry << 32) | (e_entry >> 32);
-		else
-			e_entry >>= 32;
 	}
 
 	if (e_ident[EI_CLASS] == ELFCLASS32)
