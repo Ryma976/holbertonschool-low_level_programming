@@ -1,5 +1,3 @@
-
-cat << 'EOF' > 103-keygen.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -29,8 +27,10 @@ int main(int argc, char *argv[])
 		r *= u[i];
 	k[2] = l[(r ^ 85) & 63];
 	for (i = 0, r = 0; i < len; i++)
+	{
 		if (u[i] > r)
 			r = u[i];
+	}
 	srand(r ^ 14);
 	k[3] = l[rand() & 63];
 	for (i = 0, r = 0; i < len; i++)
@@ -43,4 +43,3 @@ int main(int argc, char *argv[])
 	printf("%s", k);
 	return (0);
 }
-EOF
