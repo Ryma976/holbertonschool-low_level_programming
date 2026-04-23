@@ -1,3 +1,5 @@
+
+cat << 'EOF' > 103-keygen.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,3 +43,4 @@ int main(int argc, char *argv[])
 	printf("%s", k);
 	return (0);
 }
+EOF
