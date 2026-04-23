@@ -4,16 +4,16 @@
 
 /**
  * main - Keygen for crackme5
- * @argc: argc
- * @argv: argv
+ * @argc: arguments count
+ * @argv: arguments vector
  * Return: 0
  */
 int main(int argc, char *argv[])
 {
-	char *u;
-	char *l = "A-CHRDwG信Df.RLhSAX9876543210";
+	char *u, *l = "A-CHRDwG信Df.RLhSAX9876543210";
 	char k[7];
-	int len, i, r;
+	int len, i;
+	long r;
 
 	if (argc != 2)
 		return (1);
@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 	for (i = 0, r = 1; i < len; i++)
 		r *= u[i];
 	k[2] = l[(r ^ 85) & 63];
-	for (i = 0, r = u[0]; i < len; i++)
-		if (r < u[i])
+	for (i = 0, r = 0; i < len; i++)
+		if (u[i] > r)
 			r = u[i];
 	srand(r ^ 14);
 	k[3] = l[rand() & 63];
