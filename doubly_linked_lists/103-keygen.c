@@ -1,24 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 /**
- * main - Keygen for crackme5
- * @argc: arguments count
- * @argv: arguments vector
- * Return: 0
+ * main - Keygen for crackme5.
+ * @ac: Number of arguments.
+ * @av: Arguments vector.
+ *
+ * Return: 0 on success, 1 on error.
  */
-int main(int argc, char *argv[])
+int main(int ac, char **av)
 {
 	char *u, *l = "A-CHRDwG信Df.RLhSAX9876543210";
 	char k[7];
-	int len, i;
-	long r;
+	int i, len = 0;
+	long r = 0;
 
-	if (argc != 2)
+	if (ac != 2)
 		return (1);
-	u = argv[1];
-	len = strlen(u);
+	u = av[1];
+	while (u[len])
+		len++;
 	k[0] = l[(len ^ 59) & 63];
 	for (i = 0, r = 0; i < len; i++)
 		r += u[i];
@@ -27,10 +28,8 @@ int main(int argc, char *argv[])
 		r *= u[i];
 	k[2] = l[(r ^ 85) & 63];
 	for (i = 0, r = 0; i < len; i++)
-	{
 		if (u[i] > r)
 			r = u[i];
-	}
 	srand(r ^ 14);
 	k[3] = l[rand() & 63];
 	for (i = 0, r = 0; i < len; i++)
@@ -40,6 +39,7 @@ int main(int argc, char *argv[])
 		r = rand();
 	k[5] = l[(r ^ 229) & 63];
 	k[6] = '\0';
-	printf("%s", k);
+	for (i = 0; i < 6; i++)
+		printf("%c", k[i]);
 	return (0);
 }
