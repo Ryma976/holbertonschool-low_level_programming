@@ -3,10 +3,10 @@
 #include <string.h>
 
 /**
- * main - Keygen for crackme5.
- * @ac: Arguments count.
- * @av: Arguments vector.
- * Return: 0 on success, 1 on error.
+ * main - Keygen for crackme5
+ * @ac: arguments count
+ * @av: arguments vector
+ * Return: 0
  */
 int main(int ac, char **av)
 {
