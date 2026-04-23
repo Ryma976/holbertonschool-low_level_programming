@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * main - Keygen for crackme5.
- * @ac: Number of arguments.
- * @av: Arguments vector.
+ * main - Keygen for crackme5
+ * @ac: Number of arguments
+ * @av: Arguments vector
  *
- * Return: 0 on success, 1 on error.
+ * Return: 0 on success, 1 on error
  */
 int main(int ac, char **av)
 {
@@ -39,7 +39,6 @@ int main(int ac, char **av)
 		r = rand();
 	k[5] = l[(r ^ 229) & 63];
 	k[6] = '\0';
-	for (i = 0; i < 6; i++)
-		printf("%c", k[i]);
+	printf("%s", k);
 	return (0);
 }
