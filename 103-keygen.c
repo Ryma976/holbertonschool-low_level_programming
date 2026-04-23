@@ -3,44 +3,45 @@
 #include <string.h>
 
 /**
- * main - Generates a key for crackme5 based on a username.
- * @argc: The number of arguments.
- * @argv: The arguments vector.
- *
- * Return: 0 on success, 1 on error.
+ * main - Keygen for crackme5
+ * @argc: arguments count
+ * @argv: arguments vector
+ * Return: 0
  */
 int main(int argc, char *argv[])
 {
-	char *user;
-	char *lookup = "A-CHRDwG信Df.RLhSAX9876543210";
-	char key[7];
-	int len, i, res;
+	char *u;
+	char *l = "A-CHRDwG信Df.RLhSAX9876543210";
+	char k[7];
+	int len, i, r;
 
 	if (argc != 2)
 		return (1);
 
-	user = argv[1];
-	len = strlen(user);
+	u = argv[1];
+	len = strlen(u);
 
-	key[0] = lookup[(len ^ 59) & 63];
-	for (i = 0, res = 0; i < len; i++)
-		res += user[i];
-	key[1] = lookup[(res ^ 79) & 63];
-	for (i = 0, res = 1; i < len; i++)
-		res *= user[i];
-	key[2] = lookup[(res ^ 85) & 63];
-	for (i = 0, res = user[0]; i < len; i++)
-		if (res < user[i])
-			res = user[i];
-	srand(res ^ 14);
-	key[3] = lookup[rand() & 63];
-	for (i = 0, res = 0; i < len; i++)
-		res += (user[i] * user[i]);
-	key[4] = lookup[(res ^ 239) & 63];
-	for (i = 0, res = 0; i < user[0]; i++)
-		res = rand();
-	key[5] = lookup[(res ^ 229) & 63];
-	key[6] = '\0';
-	printf("%s", key);
+	/* حساب الرموز الستة بناءً على خوارزمية crackme5 */
+	k[0] = l[(len ^ 59) & 63];
+	for (i = 0, r = 0; i < len; i++)
+		r += u[i];
+	k[1] = l[(r ^ 79) & 63];
+	for (i = 0, r = 1; i < len; i++)
+		r *= u[i];
+	k[2] = l[(r ^ 85) & 63];
+	for (i = 0, r = 0; i < len; i++)
+		if (u[i] > r)
+			r = u[i];
+	srand(r ^ 14);
+	k[3] = l[rand() & 63];
+	for (i = 0, r = 0; i < len; i++)
+		r += (u[i] * u[i]);
+	k[4] = l[(r ^ 239) & 63];
+	for (i = 0, r = 0; i < u[0]; i++)
+		r = rand();
+	k[5] = l[(r ^ 229) & 63];
+	k[6] = '\0';
+
+	printf("%s", k);
 	return (0);
 }
