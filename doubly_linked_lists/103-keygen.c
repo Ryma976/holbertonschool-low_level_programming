@@ -1,4 +1,3 @@
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,18 +6,20 @@
  * main - Keygen for crackme5
  * @argc: Number of arguments
  * @argv: Arguments vector
- * Return: 0 on success, 1 on failure
+ *
+ * Return: 0 on success, 1 on error
  */
 int main(int argc, char *argv[])
 {
-	unsigned int i, sum = 0;
+	size_t i;
+	unsigned int sum = 0;
 	char *lookup = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU4m163oejukq9fIhPaWdZ87";
 	char key[7];
 
 	if (argc != 2)
 		return (1);
 
-	for (i = 0; i < (unsigned int)strlen(argv[1]); i++)
+	for (i = 0; i < strlen(argv[1]); i++)
 		sum += argv[1][i];
 
 	key[0] = lookup[(sum ^ 59) & 63];
@@ -30,5 +31,6 @@ int main(int argc, char *argv[])
 	key[6] = '\0';
 
 	printf("%s", key);
+
 	return (0);
 }
