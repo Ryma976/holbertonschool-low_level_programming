@@ -1,18 +1,16 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdlib.h>
 
 /**
- * main - Generates a key for crackme5 based on a username.
+ * main - Keygen for crackme5.
  * @argc: The number of arguments.
  * @argv: The arguments vector.
- *
- * Return: 0 on success, 1 on error.
+ * Return: 0 on success, 1 on failure.
  */
 int main(int argc, char *argv[])
 {
 	unsigned int i, sum;
-	size_t len;
 	char *lookup;
 	char key[7];
 
@@ -20,10 +18,9 @@ int main(int argc, char *argv[])
 		return (1);
 
 	lookup = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU4m163oejukq9fIhPaWdZ87";
-	len = strlen(argv[1]);
 	sum = 0;
 
-	for (i = 0; i < len; i++)
+	for (i = 0; i < strlen(argv[1]); i++)
 		sum += argv[1][i];
 
 	key[0] = lookup[(sum ^ 59) & 63];
