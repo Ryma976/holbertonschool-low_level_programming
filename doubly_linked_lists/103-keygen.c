@@ -3,11 +3,11 @@
 #include <string.h>
 
 /**
- * main - Keygen for crackme5
- * @argc: Number of arguments
- * @argv: Arguments vector
+ * main - Keygen for crackme5.
+ * @argc: Number of arguments.
+ * @argv: Arguments vector.
  *
- * Return: 0 on success, 1 on error
+ * Return: 0 on success, 1 on failure.
  */
 int main(int argc, char *argv[])
 {
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		return (1);
 
 	for (i = 0; i < strlen(argv[1]); i++)
-		sum += argv[1][i];
+		sum += (unsigned int)argv[1][i];
 
 	key[0] = lookup[(sum ^ 59) & 63];
 	key[1] = lookup[(sum ^ 79) & 63];
