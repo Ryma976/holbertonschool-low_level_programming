@@ -3,26 +3,29 @@
 #include <string.h>
 
 /**
- * main - Keygen for crackme5
- * @ac: argument count
- * @av: argument vector (av[1] is the username)
- * Return: 0 on success
+ * main - Generates a key for crackme5 based on a username.
+ * @argc: The number of arguments.
+ * @argv: The arguments vector.
+ *
+ * Return: 0 on success, 1 on error.
  */
-int main(int ac, char *av[])
+int main(int argc, char *argv[])
 {
 	unsigned int i, sum;
-	char *username;
+	size_t len;
+	char *lookup;
 	char key[7];
-	char *lookup = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU4m163oejukq9fIhPaWdZ87";
 
-	if (ac != 2)
+	if (argc != 2)
 		return (1);
 
-	username = av[1];
+	lookup = "A-CHRDw87lNS0E9B2TibgpnMVys5XzvtOGJcYLU4m163oejukq9fIhPaWdZ87";
+	len = strlen(argv[1]);
 	sum = 0;
 
-	for (i = 0; i < strlen(username); i++)
-		sum += username[i];
+	for (i = 0; i < len; i++)
+		sum += argv[1][i];
+
 	key[0] = lookup[(sum ^ 59) & 63];
 	key[1] = lookup[(sum ^ 79) & 63];
 	key[2] = lookup[(sum ^ 85) & 63];
